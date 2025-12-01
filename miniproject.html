@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Organ Donator & Finder</title>
+    <link rel="stylesheet" href="miniproject.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #333;
+        }
+
+        header {
+            background: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 5px solid #ffcccb;
+        }
+
+        nav {
+            background: #ffcc00;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            border-bottom: 3px solid #333;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff6f61;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #aaa;
+        }
+
+        h2 {
+            color: #ff6f61;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 5px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .btn {
+            background: #ff6f61;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ffcc00;
+            color: #333;
+        }
+        input, select {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            border: 2px solid #f80909;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Organ Donator 🫀& Finder Website👍</h1>
+        <p>project by DHIVAGAR.R - B.Tech (IT)</p>
+    </header>
+    <nav>
+        <a href="#donor">Donor</a>
+        <a href="#recipient">Recipient</a>
+        <a href="#awareness">Awareness</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="donor">
+        <h2>Donor Registration</h2>
+        <form id="donorForm">
+            <label>Name:</label>
+            <input type="text" id="donorName" required>
+            <label>Blood Type:</label>
+            <select id="donorBlood">
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>O+</option>
+                <option>O-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+            </select>
+            <label>Organ Available:</label>
+            <input type="text" id="donorOrgan" required>
+            <button type="button" class="btn" onclick="registerDonor()">Register</button>
+        </form>
+        <p id="donorOutput"></p>
+    </section>
+    <section id="recipient">
+        <h2>Recipient Application</h2>
+        <form id="recipientForm">
+            <label>Name:</label>
+            <input type="text" id="recipientName" required>
+            <label>Required Organ:</label>
+            <input type="text" id="recipientOrgan" required>
+            <button type="button" class="btn" onclick="applyRecipient()">Apply</button>
+        </form>
+        <p id="recipientOutput"></p>
+    </section>
+    <section id="awareness">
+        <h2>Awareness & Education</h2>
+        <p>Organ donation saves lives. By registering as a donor, you can give someone a second chance.</p>
+        <button class="btn" onclick="showCampaign()">Show Campaign Message</button>
+        <p id="campaignMessage"></p>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email:25it022@rmkec.ac.in</p>
+        <p>Phone: +91 1234567890</p>
+    </section>
+    <footer>
+        <p>&copy; welcome to my webpage- Dhivagar R🫀</p>
+    </footer>
+    <script>
+        function registerDonor() {
+            let name = document.getElementById("donorName").value;
+            let blood = document.getElementById("donorBlood").value;
+            let organ = document.getElementById("donorOrgan").value;
+            document.getElementById("donorOutput").innerText =
+                "Donor Registered: " + name + " | Blood: " + blood + " | Organ: " + organ;
+        }
+        function applyRecipient() {
+            let name = document.getElementById("recipientName").value;
+            let organ = document.getElementById("recipientOrgan").value;
+            document.getElementById("recipientOutput").innerText =
+                "Recipient Applied: " + name + " | Organ Needed: " + organ;
+        }
+        function showCampaign() {
+            document.getElementById("campaignMessage").innerText =
+                "🌟 Donate organs, save lives! 🌟";
+        }
+    </script>
+
+</body>
+</html>
